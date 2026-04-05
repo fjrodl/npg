@@ -82,7 +82,7 @@ if(DOXYGEN_FOUND AND DOXYFILE_IN_FOUND)
 			set(DOXYFILE_DOT "YES")
 		endif()
 
-		add_custom_command(TARGET doxygen
+		add_custom_command(TARGET doxygen${DOXYFILE_TARGET_SUFFIX}
 			POST_BUILD
 			COMMAND ${CMAKE_MAKE_PROGRAM}
 			WORKING_DIRECTORY "${DOXYFILE_OUTPUT_DIR}/${DOXYFILE_LATEX_DIR}")
@@ -91,8 +91,7 @@ if(DOXYGEN_FOUND AND DOXYFILE_IN_FOUND)
 
 	configure_file(${DOXYFILE_IN} Doxyfile ESCAPE_QUOTES IMMEDIATE @ONLY)
 
-	get_target_property(DOC_TARGET doc TYPE)
-	if(NOT DOC_TARGET)
+	if(NOT TARGET doc)
 		add_custom_target(doc)
 	endif()
 		
