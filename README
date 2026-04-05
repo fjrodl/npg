@@ -66,6 +66,32 @@ coinor-* libraries are shared-only, you may need to build CBC from
 source with static libraries enabled.
 
 
+Documentation (Doxygen + UML)
+-----------------------------
+
+A complete Doxygen configuration is provided at:
+
+Doxyfile
+
+It is configured with Graphviz/dot and UML-style diagrams enabled
+(`HAVE_DOT = YES`, `UML_LOOK = YES`, call graphs, caller graphs,
+include graphs, directory graphs, and class/collaboration graphs).
+
+1) Install documentation dependencies on Ubuntu 24.04:
+
+sudo apt-get install doxygen graphviz
+
+2) Generate documentation from the repository root:
+
+doxygen Doxyfile
+
+Generated outputs:
+
+- docs/html/index.html   (main browsable documentation)
+- docs/xml/              (machine-readable XML output)
+- docs/latex/            (LaTeX sources)
+
+
 Running
 -------
 
