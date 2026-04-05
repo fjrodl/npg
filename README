@@ -36,7 +36,14 @@ sudo apt-get install build-essential cmake \
 mkdir -p build
 cd build
 cmake ../src
-cmake --build . --target colin -j$(nproc)
+
+cmake --build . --target colin -j$(nproc) && make 
+
+or 
+
+cmake --build . -j$(nproc)
+
+
 
 This produces two binaries inside the build directory:
 
